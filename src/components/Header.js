@@ -19,7 +19,7 @@ const Header = () => {
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
+            {/* <Nav className="me-auto">
               <Nav.Link href="/search-jobs">Search Jobs</Nav.Link>
               <Nav.Link href="/search-employers">Search Employers</Nav.Link>
               <Nav.Link href="/advice">Advice</Nav.Link>
@@ -35,7 +35,7 @@ const Header = () => {
                 <NavDropdown.Item href="/forum/mental-health">Mental Health</NavDropdown.Item>
                 <NavDropdown.Item href="/forum/skills-development">Skills Development</NavDropdown.Item>
               </NavDropdown>
-            </Nav>
+            </Nav> */}
 
             {/* Right-aligned Nav Links */}
             <Nav>
