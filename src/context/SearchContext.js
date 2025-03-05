@@ -8,6 +8,7 @@ export const SearchProvider = ({ children }) => {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams(); 
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   useEffect(() => {
     const keywords = searchParams.get('keywords') || '';
@@ -30,11 +31,7 @@ export const SearchProvider = ({ children }) => {
 
     setFilteredJobs(filtered);
     setIsSearchActive(false);
-
-    const queryParams = new URLSearchParams();
-    if (keywords) queryParams.set('keywords', keywords);
-    if (location) queryParams.set('location', location);
-    if (jobType) queryParams.set('jobType', jobType);
+    setSearchPerformed(!!(keywords || location || jobType));
 
     if (shouldUpdateUrl) {
       const queryParams = new URLSearchParams();
@@ -47,7 +44,7 @@ export const SearchProvider = ({ children }) => {
   };
 
   return (
-    <SearchContext.Provider value={{ isSearchActive, setIsSearchActive, filteredJobs, handleFilter }}>
+    <SearchContext.Provider value={{ isSearchActive, searchPerformed, setIsSearchActive, filteredJobs, handleFilter }}>
       {children}
     </SearchContext.Provider>
   );

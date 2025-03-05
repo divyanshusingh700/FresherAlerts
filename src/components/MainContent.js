@@ -11,7 +11,7 @@ import JobsData from '../data/JobsData';
 
 const MainContent = () => {
   const [selectedJob, setSelectedJob] = useState(JobsData[0]);
-  const { isSearchActive, setIsSearchActive, filteredJobs, handleFilter } = useContext(SearchContext);
+  const { isSearchActive, searchPerformed, setIsSearchActive, filteredJobs, handleFilter } = useContext(SearchContext);
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
@@ -43,15 +43,14 @@ const MainContent = () => {
 
       {/* Results Count Message */}
       <Col md={12} className="text-center my-2">
-        {filteredJobs.length > 0 ? (
-          <h5>📢 {filteredJobs.length} result{filteredJobs.length > 1 ? "s" : ""} found</h5>
-        ) : (
-          <>
-            <h5 className="text-danger">No results found!</h5>
-            <p className="text-muted">Browse all available jobs below👇</p>
-          </>
-        )}
-      </Col>
+          {searchPerformed && (
+            filteredJobs.length > 0 ? (
+              <h5>📢 {filteredJobs.length} result{filteredJobs.length > 1 ? 's' : ''} found</h5>
+            ) : (
+              <h5 className="text-danger">No results found!</h5>
+            )
+          )}
+        </Col>
 
         {/* Job List Section */}
         <Col md={4} className="job-list px-3">
