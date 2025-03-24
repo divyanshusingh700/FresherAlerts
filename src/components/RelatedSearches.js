@@ -1,13 +1,13 @@
 // src/components/RelatedSearches.js
 
-import React from 'react';
-import { Button } from 'react-bootstrap';
+import React from "react";
+import { Button } from "react-bootstrap";
 
 const RelatedSearches = () => {
   const searches = [
-    'Software Engineer Jobs',
-    'Developer Jobs in Bangalore',
-    'Entry-Level IT Jobs',
+    "Software Engineer Jobs",
+    "Developer Jobs in Bangalore",
+    "Entry-Level IT Jobs",
     // ...more searches
   ];
 

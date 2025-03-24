@@ -1,20 +1,31 @@
-import React, { useContext } from 'react';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import { FaUserCircle } from 'react-icons/fa';
-import { BsBriefcase } from 'react-icons/bs';
-import FilterSearch from './FilterSearch';
-import { SearchContext } from '../context/SearchContext';
+import React, { useContext } from "react";
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { FaUserCircle } from "react-icons/fa";
+import { BsBriefcase } from "react-icons/bs";
+import FilterSearch from "./FilterSearch";
+import { SearchContext } from "../context/SearchContext";
 
 const Header = () => {
   const { isSearchActive, setIsSearchActive } = useContext(SearchContext);
 
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="light"
+        variant="light"
+        sticky="top"
+      >
         <Container>
           {/* Brand Logo */}
           <Navbar.Brand href="/">
-            <img src="/logo.png" height="30" className="logo-img d-inline-block align-top" alt="Logo" />
+            <img
+              src="/logo.png"
+              height="30"
+              className="logo-img d-inline-block align-top"
+              alt="Logo"
+            />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -40,10 +51,11 @@ const Header = () => {
             {/* Right-aligned Nav Links */}
             <Nav>
               <Nav.Link href="/sign-in">
-                <FaUserCircle style={{ marginBottom: '2px' }} /> Sign In
+                <FaUserCircle style={{ marginBottom: "2px" }} /> Sign In
               </Nav.Link>
               <Nav.Link href="/employers-post-job">
-                <BsBriefcase style={{ marginBottom: '2px' }} /> Employers/Post Job
+                <BsBriefcase style={{ marginBottom: "2px" }} /> Employers/Post
+                Job
               </Nav.Link>
             </Nav>
 
@@ -59,7 +71,12 @@ const Header = () => {
       {isSearchActive && (
         <div className="search-overlay">
           <div className="search-container">
-            <button className="close-btn" onClick={() => setIsSearchActive(false)}>✖</button>
+            <button
+              className="close-btn"
+              onClick={() => setIsSearchActive(false)}
+            >
+              ✖
+            </button>
             <FilterSearch />
           </div>
         </div>

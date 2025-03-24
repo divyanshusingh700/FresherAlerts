@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
-import { SearchContext } from '../context/SearchContext';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from "react";
+import { Form, Button, Row, Col } from "react-bootstrap";
+import { SearchContext } from "../context/SearchContext";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const FilterSearch = () => {
   const { handleFilter, setIsSearchActive } = useContext(SearchContext);
@@ -9,34 +9,35 @@ const FilterSearch = () => {
   const [searchParams] = useSearchParams();
 
   // Initialize state with URL parameters (maintains search on back navigation)
-  const [keywords, setKeywords] = useState(searchParams.get('keywords') || '');
-  const [location, setLocation] = useState(searchParams.get('location') || '');
-  const [jobType, setJobType] = useState(searchParams.get('jobType') || '');
+  const [keywords, setKeywords] = useState(searchParams.get("keywords") || "");
+  const [location, setLocation] = useState(searchParams.get("location") || "");
+  const [jobType, setJobType] = useState(searchParams.get("jobType") || "");
 
   useEffect(() => {
+    console.log("inside FilterSearch useeffect");
     // Update state when URL changes (e.g., navigating back)
-    setKeywords(searchParams.get('keywords') || '');
-    setLocation(searchParams.get('location') || '');
-    setJobType(searchParams.get('jobType') || '');
-  }, [searchParams]); 
-  
+    setKeywords(searchParams.get("keywords") || "");
+    setLocation(searchParams.get("location") || "");
+    setJobType(searchParams.get("jobType") || "");
+  }, [searchParams]);
+
   const handleSearch = (e) => {
     e.preventDefault();
     console.log("🔍 Applying filters:", { keywords, location, jobType });
 
     handleFilter({ keywords, location, jobType });
-    
-    setKeywords('');
-    setLocation('');
-    setJobType('');
+
+    setKeywords("");
+    setLocation("");
+    setJobType("");
 
     setIsSearchActive(false);
 
     // Update URL with search parameters
     const queryParams = new URLSearchParams();
-    if (keywords) queryParams.append('keywords', keywords);
-    if (location) queryParams.append('location', location);
-    if (jobType) queryParams.append('jobType', jobType);
+    if (keywords) queryParams.append("keywords", keywords);
+    if (location) queryParams.append("location", location);
+    if (jobType) queryParams.append("jobType", jobType);
 
     navigate(`/?${queryParams.toString()}`, { replace: false });
   };

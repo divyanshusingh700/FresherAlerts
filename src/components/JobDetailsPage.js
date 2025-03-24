@@ -11,7 +11,9 @@ const JobDetailsPage = () => {
 
   useEffect(() => {
     const foundJob = JobsData.find(
-      (j) => j.company === decodeURIComponent(jobCompany) && j.title === decodeURIComponent(jobTitle)
+      (j) =>
+        j.company === decodeURIComponent(jobCompany) &&
+        j.title === decodeURIComponent(jobTitle),
     );
 
     setTimeout(() => {
@@ -48,12 +50,28 @@ const JobDetailsPage = () => {
           <Card.Subtitle className="mb-2 text-muted">
             {job.company} - {job.location}
           </Card.Subtitle>
-          <Card.Text><strong>Description:</strong> {job.description}</Card.Text>
-          <Card.Text><strong>Responsibilities:</strong></Card.Text>
-          <ul>{job.responsibilities.map((res, index) => <li key={index}>{res}</li>)}</ul>
-          <Card.Text><strong>Qualifications:</strong></Card.Text>
-          <ul>{job.qualifications.map((qual, index) => <li key={index}>{qual}</li>)}</ul>
-          <Card.Text><strong>Benefits:</strong> {job.benefits.join(", ")}</Card.Text>
+          <Card.Text>
+            <strong>Description:</strong> {job.description}
+          </Card.Text>
+          <Card.Text>
+            <strong>Responsibilities:</strong>
+          </Card.Text>
+          <ul>
+            {job.responsibilities.map((res, index) => (
+              <li key={index}>{res}</li>
+            ))}
+          </ul>
+          <Card.Text>
+            <strong>Qualifications:</strong>
+          </Card.Text>
+          <ul>
+            {job.qualifications.map((qual, index) => (
+              <li key={index}>{qual}</li>
+            ))}
+          </ul>
+          <Card.Text>
+            <strong>Benefits:</strong> {job.benefits.join(", ")}
+          </Card.Text>
         </Card.Body>
       </Card>
     </Container>

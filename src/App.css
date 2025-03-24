@@ -64,10 +64,12 @@ main {
 .job-list {
   min-width: 370px;
   max-width: 35%;
+  max-height: 50vh;
   flex: 1;
   padding-top: 5px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .job-list .list-group {
@@ -162,7 +164,6 @@ main {
   cursor: pointer;
 }
 
-/* 🔥 Search Overlay */
 .search-overlay {
   position: fixed;
   top: 0;
@@ -194,7 +195,6 @@ main {
   cursor: pointer;
 }
 
-/* 🔥 Placeholder Message When Job Details Are Empty */
 .job-details:empty::before {
   content: "🔍 Select a job to see details";
   color: #999;
