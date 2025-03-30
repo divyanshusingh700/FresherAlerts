@@ -27,11 +27,11 @@ const FilterSearch = () => {
 
     handleFilter({ keywords, location, jobType });
 
-    setKeywords("");
-    setLocation("");
-    setJobType("");
+    // setKeywords("");
+    // setLocation("");
+    // setJobType("");
 
-    setIsSearchActive(false);
+    // setIsSearchActive(false);
 
     // Update URL with search parameters
     const queryParams = new URLSearchParams();

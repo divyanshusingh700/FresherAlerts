@@ -6,41 +6,21 @@ import { Container, Row, Col } from "react-bootstrap";
 import { SearchContext } from "../context/SearchContext";
 import { useSearchParams } from "react-router-dom";
 import JobsData from "../data/JobsData";
+import Filter from "./Filter/Filter";
 
 const MainContent = () => {
   const [selectedJob, setSelectedJob] = useState(JobsData[0]);
   const {
     isSearchActive,
     searchPerformed,
-    setIsSearchActive,
     filteredJobs,
-    handleFilter,
   } = useContext(SearchContext);
   const [searchParams] = useSearchParams();
 
-  useEffect(() => {
-    console.log("inside main content handlefilter useeffect");
-    handleFilter(
-      {
-        keywords: searchParams.get("keywords") || "",
-        location: searchParams.get("location") || "",
-        jobType: searchParams.get("jobType") || "",
-      },
-      false,
-    );
-  }, [searchParams]);
-
-  useEffect(() => {
-    const newSelectedJob =
-      filteredJobs.find((job) => job.id === selectedJob?.id) ||
-      filteredJobs[0] ||
-      JobsData[0];
-    setSelectedJob(newSelectedJob);
-  }, [filteredJobs]);
-
   return (
     <Container fluid className="main-content">
-      {isSearchActive && <FilterSearch />}
+      {<FilterSearch />}
+      {<Filter/>}
       <Row className="justify-content-center">
         {/* Results Count Message */}
         <Col md={12} className="text-center my-2">

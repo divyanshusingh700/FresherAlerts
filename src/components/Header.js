@@ -67,20 +67,6 @@ const Header = () => {
         </Container>
       </Navbar>
 
-      {/* Search Overlay */}
-      {isSearchActive && (
-        <div className="search-overlay">
-          <div className="search-container">
-            <button
-              className="close-btn"
-              onClick={() => setIsSearchActive(false)}
-            >
-              ✖
-            </button>
-            <FilterSearch />
-          </div>
-        </div>
-      )}
     </>
   );
 };

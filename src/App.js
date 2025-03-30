@@ -25,10 +25,11 @@ function App() {
                 element={<JobDetailsPage />}
               />
             </Routes>
-            <RelatedSearches />
-            <Footer />
+
           </div>
         </SearchProvider>
+        <RelatedSearches />
+        <Footer />
       </Router>
     </Provider>
   );
