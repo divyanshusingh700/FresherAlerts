@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dropdown, Button } from "react-bootstrap";
 import "./Filter.css";
-import FilterModal from "./Modal/FilterModal";
+import FilterModal from "./Modal/FilterModal/FilterModal";
 
 const filterOptions = [
   { id: "remote", label: "Remote", options: ["Yes", "No", "Hybrid"] },
