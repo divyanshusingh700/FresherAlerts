@@ -3,6 +3,7 @@ import { Dropdown, Button } from "react-bootstrap";
 import "./Filter.css";
 import FilterModal from "./Modal/FilterModal/FilterModal";
 
+
 const filterOptions = [
   { id: "remote", label: "Remote", options: ["Yes", "No", "Hybrid"] },
   { id: "datePosted", label: "Date Posted", options: ["Last 24 Hours", "Last 7 Days", "Last 30 Days"] },
